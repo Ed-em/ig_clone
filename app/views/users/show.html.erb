@@ -1,2 +1,4 @@
 <h1><%= @user.name %>'s Profile</h1>
 <p>email: <%= @user.email %></p>
+<%= link_to 'Your Feed', feeds_path %>
+<%= link_to 'Create Post', new_feed_path %>
