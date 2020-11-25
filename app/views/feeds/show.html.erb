@@ -10,5 +10,13 @@
   <%= @feed.post %>
 </p>
 
+<% unless @feed.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'unlike', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'like', favorites_path(feed_id: @feed.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>
