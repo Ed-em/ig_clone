@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   root 'users#new'
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users do
-  end
-  resources :favorites, only: [:create, :destroy]
+  resources :users
+  resources :favorites, only: [:create, :destroy, :index]
   resources :feeds do
     collection do
       post :confirm
