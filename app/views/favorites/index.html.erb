@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+ <p id="notice"><%= notice %></p>
 
 <h1>Feeds</h1>
 
@@ -12,10 +12,8 @@
   </thead>
 
   <tbody>
-    <% @favorites.each do |fav| %>
+    <% current_user.favorites.each do |fav| %>
       <tr>
-        <td><%= image_tag fav.image.url %></td>
-        <td><%= fa.post %></td>
         <td><%= fav.created_at %></td>
       </tr>
     <% end %>
