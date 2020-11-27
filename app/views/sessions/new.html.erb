@@ -1,8 +1,61 @@
-<<h1>Log in</h1>
- <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
- <%= f.label :email %>
- <%= f.email_field :email %>
- <%= f.label :password %>
- <%= f.password_field :password %>
- <%= f.submit "Log in" %>
- <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <%= image_tag("phone.png", class: "phone") %>
+      </div>
+      <div class="col-sm-6">
+        <div class="right-column-seession text-center">
+        <%= image_tag("instagram.png", class: "instagram-logo") %>
+          <p class="info">Sign in to see photos and videos from your friends.</p>
+          <button type="submit" class="btn btn-primary btn-block">Log in with Facebook</button>
+          <p class="or">or</p>
+          <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+          <div class="form-group">
+            <%= f.email_field :email, placeholder: "email" %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, placeholder: "password" %>
+          </div>
+          <div class="form-group">
+             <%= f.submit "Log in" %>
+          </div>
+          <% end %>
+        </div>
+        <div class="right-colum-login text-center">
+          <p>Don't have and account? <%= link_to "Sign up", new_user_path %></p>
+        </div>
+        <div class="right-colum-app text-center">
+          <p>Get the app.</p>
+        </div>
+        <div class="bottom-column text-center">
+          <%= image_tag("app.png", class: "app-store") %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="page-footer font-small special-color-white pt-4">
+    <div class="container">
+      <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item"> About</li>
+        <li class="list-inline-item">Blog</li>
+        <li class="list-inline-item">Jobs</li>
+        <li class="list-inline-item">Help</li>
+        <li class="list-inline-item">Api</li>
+        <li class="list-inline-item">Privacy</li>
+        <li class="list-inline-item">Terms</li>
+        <li class="list-inline-item">Top Accounts</li>
+        <li class="list-inline-item">Hashtags</li>
+        <li class="list-inline-item">Locations</li>
+        <br>
+        <li class="list-inline-item">Beauty</li>
+        <li class="list-inline-item">Dance & Performance</li>
+        <li class="list-inline-item">Fitness</li>
+        <li class="list-inline-item">Food & Drink</li>
+        <li class="list-inline-item">Home & GArden</li>
+        <li class="list-inline-item">Music</li>
+        <li class="list-inline-item">Visual Arts</li>
+      </ul>
+    </div>
+    <div class="footer-copyright text-center py-3">© 2020 IG Clone from Edem
+    </div>
+  </footer>

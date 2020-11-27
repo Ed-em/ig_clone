@@ -1,15 +1,22 @@
-<%= form_with(model: @user, local: true) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :email %>
-<%= f.email_field :email %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %>
-<%= f.label :photo %>
-<%= image_tag(@user.photo.url) if @user.photo && @user.photo.url %>
-<%= f.file_field :photo %>
-<%= f.hidden_field :photo_cache %>
-<%= f.submit %>
+<div class="form-group">
+  <%= form_with(model: @user, local: true) do |f| %>
+</div>
+<div class="form-group">
+  <%= f.text_field :name, placeholder: 'name', class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.email_field :email, placeholder: 'email', class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.password_field :password, placeholder: 'password', class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.password_field :password_confirmation, placeholder: 'password_confirmation', class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.file_field :photo, placeholder: 'photo', class: "form-group" %>
+</div>
+<div class="form-group">
+  <%= f.submit  %>
+</div>
 <% end %>
