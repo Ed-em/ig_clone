@@ -23,7 +23,7 @@
               <span class="photo__location">Location</span>
             </div>
           </header>
-          <%= image_tag fav.image.url,class: "image-post"%>
+          <%= link_to fav do %><%= image_tag fav.image.url,class: "image-post"%><% end %>
           <div class="photo__info">
             <span><%= fav.post %></span>
             <br>
