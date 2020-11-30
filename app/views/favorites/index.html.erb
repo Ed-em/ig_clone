@@ -1,25 +1,83 @@
  <p id="notice"><%= notice %></p>
 
-<h1>Feeds</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Post</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<main>
+<div class="container1">
+  <div class="row">
+    <div class="col-lg-1">
 
-  <tbody>
-    <% current_user.favorites.each do |fav| %>
-      <tr>
-        <td><%= fav.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+    <div class="col-lg-7">
+      <section id="feed">
+        <div class="photo">
+          <header class="photo__header">
+            <h3>Favorites</h3>
+          </header>
+        </div>
+      </section>
+        <% @favorites.each do |fav| %>
+        <section id="feed">
+            <div class="photo">
+              <header class="photo__header">
+                  <%= image_tag fav.feed.user.photo.url, class: "photo__avatar" %>
+                  <div class="photo__user-info">
+                      <span class="photo__author"><%= fav.feed.user.name%></span>
+                      <span class="photo__location">Location</span>
+                  </div>
+              </header>
+                <%= image_tag fav.feed.image.url,class: "image-post"%>
+                <div class="photo__info">
+                   <span><%= fav.feed.post %></span>
+                    <br>
+                    <span class="photo__likes">liked by <b>Rando </b> and <b>45 others</b></span>
+                    <span class="photo__time-ago"><%= fav.feed.created_at.strftime('%Y/%-m/%-d %-H:%-M') %></span>
+                    <div class="photo__add-comment-container">
+                        <textarea name="comment" placeholder="Add a comment..."></textarea>
+                        <a href="#">Post</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <% end %>
+     </div>
 
-<br>
+    <div class="col-lg-2">
+      <div class="affix">
+        <div class="photo">
+        <header class="photo__header">
+            <%= image_tag current_user.photo.url, class: "profile-image1" %>
+            <div class="photo__user-info">
+                <span class="photo__author"><%= current_user.name %></span>
+                <span class="photo__location"><%= current_user.email %></span>
+            </div>
+        </header>
+      </div>
+      <div class="photo">
+      <header class="photo__header">
+          <div class="photo__user-info">
+            <div class="footer-copyright text-left py-3">
+              <ul class="list-unstyled list-inline text-left">
+                <li class="list-inline-item1"> About</li>
+                <li class="list-inline-item1">Blog</li>
+                <li class="list-inline-item1">Jobs</li>
+                <li class="list-inline-item1">Help</li>
+                <li class="list-inline-item1">Api</li>
+                <li class="list-inline-item1">Privacy</li>
+                <li class="list-inline-item1">Terms</li>
 
-<%= link_to 'Back', feeds_path %>
+                <br>
+                <li class="list-inline-item1">Locations</li>
+                <li class="list-inline-item1">Top Accounts</li>
+                <li class="list-inline-item1">Hashtags</li>
+                <li class="list-inline-item1">Locations</li>
+                <li class="list-inline-item1">Locations</li>
+
+              </ul>
+            </div>
+            <div class="footer-copyright text-left py-3">© 2020 IG Clone from Edem
+            </div>
+          </div>
+      </header>
+    </div>
+    </div>
+    </div>

@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
   has_many :favorites, dependent: :destroy
   has_many :feeds
-  has_many :favorited_feeds, through: :favorites, source: :feed
+  
 end

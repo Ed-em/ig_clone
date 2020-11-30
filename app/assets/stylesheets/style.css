@@ -349,6 +349,7 @@ li {
 
 .photo .photo__info {
   padding: 15px 20px;
+  margin-top: 0px;
 }
 
 .photo__actions {
