@@ -1,6 +1,35 @@
-<h1><%= @user.name %>'s Profile</h1>
-<%= image_tag @user.photo.url, class: "user-image" %>
-<p>email: <%= @user.email %></p>
-<%= link_to 'Your Feed', feeds_path %>
-<%= link_to 'Create Post', new_feed_path %>
-<%= link_to 'Edit Profile', edit_user_path(@user) %>
+<div class="container-profile">
+  <div class="col-lg-1">
+
+  </div>
+  <div class="col-lg-9">
+  <div class="profile">
+    <%= image_tag @user.photo.url, class: "profile-image" %>
+    <div class="profile-user-settings">
+      <ul>
+        <li><h1><%= @user.name %>_</h1></li>
+        <li><button class="btn profile-edit-btn"><%= link_to 'Edit Profile', edit_user_path(@user) %></button></li>
+        <li><i class="fa fa-cog" aria-hidden="true"></i></li>
+      </ul>
+    </div>
+    <div class="profile-stats">
+      <ul>
+        <li><span class="profile-stat-count">123 </span>posts</li>
+        <li><span class="profile-stat-count">123 </span>followers</li>
+        <li><span class="profile-stat-count">123 </span>following</li>
+      </ul>
+   </div>
+    <div class="profile-bio">
+      <ul>
+        <li><span class="profile-real-name"><%= @user.name %> Lorem ipsum dolor sit, amet consectetur adipisicing elit</span></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</div>
+<nav class="navbar navbar-fixed-bottom">
+  <footer class="page-footer font-small special-color-white pt-4">
+    <div class="footer-copyright text-center py-3">© 2020 IG Clone from Edem
+    </div>
+  </footer>
+</nav>

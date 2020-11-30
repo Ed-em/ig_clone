@@ -10,37 +10,42 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
     <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
-    <% if logged_in? %>
     <nav class="navbar navbar-default navbar-fixed-top">
+      <% if logged_in? %>
       <div class="container-fluid">
-        <%= link_to feeds_path, class: "nav navbar-brand" do %><span>Instagram</span><% end %>
-
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to new_feed_path do %><i class="fa fa-plus-square-o" aria-hidden="true"></i><% end %></li>
-          <li><%= link_to favorites_path do %><i class="fa fa-heart-o" aria-hidden="true"></i><% end %></li>
-          <li><%= link_to user_path(current_user.id) do %><%= image_tag current_user.photo.url, class: "image-icon" %><% end %></li>
-          <li><%= link_to session_path(current_user.id), method: :delete do %><i class="fa fa-sign-out" aria-hidden="true"></i><% end %></li>
-        </ul>
+      <div class="col-lg-2">
 
       </div>
+      <div class="col-lg-8">
+        <%= link_to feeds_path, class: "nav navbar-brand" do %><% image_tag("ig-logo.png", class: "ig-logo") %><% end %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to new_feed_path do %><i class="fa fa-plus-square-o fa-lg" aria-hidden="true"></i><% end %></li>
+            <li><%= link_to favorites_path do %><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i><% end %></li>
+            <li><%= link_to user_path(current_user.id) do %><%= image_tag current_user.photo.url, class: "image-icon" %><% end %></li>
+            <li><%= link_to session_path(current_user.id), method: :delete do %><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i><% end %></li>
+          </ul>
+        </div>
+        <% else %>
+        <div class="col-lg-9">
+
+        </div>
+        <div class="col-lg-2">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Log In", new_session_path %></li>
+            <li><%= link_to "Sign up", new_user_path %></li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
     </nav>
+
     <div class="container" style="margin-top:100px margin-bottom:200px">
       <%= yield %>
     </div>
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container-fluid">
-        <ul class="nav navbar-nav navbar-center">
-          <li>Copyright: Edem</li>
-        </ul>
-      </div>
-    </nav>
-    <% else %>
-    <%= yield %>
-    <% end %>
-
   </body>
 </html>

@@ -1,0 +1,89 @@
+<h1>Feeds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td><%= image_tag feed.image.url %></td>
+        <td><%= feed.post %></td>
+        <td><%= link_to 'Show', feed %></td>
+        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
+        <td><%= link_to 'Delete', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% @feeds.each do |feed| %>
+<section id="feed">
+    <div class="photo">
+        <header class="photo__header">
+            <%= link_to user_path(current_user.id) do %><%= image_tag current_user.photo.url, class: "photo__avatar" %><% end %>
+            <div class="photo__user-info">
+                <span class="photo__author"><%= current_user.name%></span>
+                <span class="photo__location">Location</span>
+            </div>
+        </header>
+        <%= link_to feed do %><%= image_tag feed.image.url,class: "image-post"%><% end %>
+        <div class="photo__info">
+            <div class="photo__actions">
+                <span class="photo__action">
+                    <%= link_to edit_feed_path(feed) do %><i class="fa fa-edit fa-lg"></i><% end %>
+                </span>
+                <span class="photo__action">
+                    <%= link_to feed, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-trash-o fa-lg"></i><% end %>
+                </span>
+            </div>
+            <span class="photo__likes">liked by <b>Rando </b> and <b>45 others</b></span>
+            <ul class="photo__comments">
+                <li class="photo__comment">
+                    <span class="photo__comment-author">Random Person</span> love this!
+                </li>
+                <li class="photo__comment">
+                    <span class="photo__comment-author">Another Rando</span> love this!
+                </li>
+            </ul>
+            <span class="photo__time-ago"><%= feed.created_at.strftime('%Y/%-m/%-d %-H:%-M') %></span>
+            <div class="photo__add-comment-container">
+                <textarea name="comment" placeholder="Add a comment..."></textarea>
+                <i class="fa fa-ellipsis-h"></i>
+            </div>
+        </div>
+    </div>
+</section>
+<% end %>
+</div>
+
+
+
+
+<% @feeds.each do |feed| %>
+
+  <ul class="post">
+
+  <li>
+    <%= link_to user_path(current_user.id) do %><%= image_tag current_user.photo.url, class: "image-icon1" %><% end %><strong> <%= current_user.name%></strong>
+
+  <p><%= link_to feed do %><%= image_tag feed.image.url,class: "image-post"%><% end %></p>
+  <div class="post-actions">
+      <a><%= link_to 'Edit', edit_feed_path(feed) %></a>
+      <a><%= link_to 'Delete', feed, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+  </div>
+  <p><%= feed.post %></p>
+  <div class="">
+    <%= feed.created_at.strftime('%Y/%-m/%-d %-H:%-M') %>
+  </div>
+
+  </li>
+</ul>
+<% end %>

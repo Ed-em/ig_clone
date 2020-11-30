@@ -1,9 +1,22 @@
-.image-icon {
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
+main {
+  -webkit-overflow-scrolling: touch;
+  flex: auto;
 }
 
+body {
+  margin-top: 100px;
+}
+
+.image-icon {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.ig-logo {
+  width: 100px;
+  height: 30px;
+}
 .header-instagram-logo {
     position: relative;
     top: 0;
@@ -31,7 +44,10 @@
   width: 360px;
   height: auto;
   margin: 10px;
-  padding: 20px;
+  padding-top: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
 }
 
 .right-column-session {
@@ -40,7 +56,10 @@
   width: 360px;
   height: auto;
   margin: 10px;
-  padding: 20px;
+  padding-top: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
   margin-top: 75px;
 }
 
@@ -140,4 +159,284 @@
   line-height: 18px;
   font-size: 12px;
   color: #999;
+}
+
+.instagram-home {
+  height: 30px;
+  width: 100px;
+}
+
+/*Profile*/
+
+.profile {
+    padding: 5rem 0;
+}
+
+.profile::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.profile-image {
+    float: left;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px
+}
+
+.profile-user-settings,
+.profile-stats,
+.profile-bio {
+    float: left;
+    width: calc(66.666% - 2rem);
+}
+
+.profile-user-settings {
+    margin-top: 1.1rem;
+}
+
+.profile-user-name {
+    display: inline-block;
+    font-size: 3.2rem;
+    font-weight: 300;
+}
+
+.profile-edit-btn {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    border: 0.1rem solid #dbdbdb;
+    border-radius: 0.3rem;
+    padding: 0 2.4rem;
+    margin-left: 2rem;
+}
+
+.profile-settings-btn {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.profile-stats {
+    margin-top: 2.3rem;
+}
+
+.profile-stats li {
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-right: 4rem;
+    cursor: pointer;
+}
+
+.profile-stats li:last-of-type {
+    margin-right: 0;
+}
+
+.profile-bio {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 2.3rem;
+}
+
+.profile-real-name,
+.profile-stat-count,
+.profile-edit-btn {
+    font-weight: 600;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/*index*/
+
+.left-column {
+  background: white;
+
+}
+
+.left-column img {
+  width: 360px;
+
+}
+
+
+.post {
+  background: grey;
+  margin: 20px;
+}
+
+.image-post {
+  width: 613px;
+  height: 614px;
+  margin: 15px auto;
+  padding: 0px;
+}
+
+.user-icon {
+  float: left;
+  padding: 10px;
+}
+
+.image-icon1 {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%
+}
+
+.profile-image1 {
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px
+}
+
+.affix {
+  margin-top: 20px:
+}
+
+/*feed*/
+#feed {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 0px;
+}
+
+#feed .photo {
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 614px;
+  margin-bottom: 65px;
+  margin-left: 0px;
+}
+
+.photo .photo__header {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.photo__header .photo__avatar {
+  width: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.photo .photo__user-info .photo__author {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.photo > img {
+  width: 100%;
+}
+
+.photo .photo__info {
+  padding: 15px 20px;
+}
+
+.photo__actions {
+  margin-bottom: 15px;
+  font-size: 115%;
+}
+
+.photo__actions .photo__action:first-child {
+  margin-right: 15px;
+}
+.photo__actions .photo__action:last-child {
+  margin-right: 15px;
+}
+.photo__actions .photo__action {
+  cursor: pointer;
+}
+
+.photo .photo__likes {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.photo .photo__add-comment-container {
+  margin-top: 15px;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo__add-comment-container textarea {
+  width: 90%;
+  border: 0;
+  font-size: 14px;
+  resize: none;
+  height: 20px;
+}
+
+.photo__add-comment-container textarea:focus,
+.photo__add-comment-container textarea:active {
+  outline: none;
+}
+
+.photo__add-comment-container i {
+  cursor: pointer;
+}
+
+.photo .photo__time-ago {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #999;
+  margin-top: 10px;
+  display: block;
+}
+
+.photo__comment {
+  margin-bottom: 10px;
+  text-align: left:
+}
+
+.photo__comments .photo__comment-author {
+  font-weight: 600;
+}
+
+.list-inline-item1 {
+  line-height: 18px;
+  font-size: 11px;
+  color: #999;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.image-post1 {
+  width: 500px;
+  height: 500px;
+
+}
+.show {
+  border: 1px;
+}
+
+.side {
+  display: inline-block;
+  height: 700px;
+}
+
+.left {
+  border-right: 1px;
 }
