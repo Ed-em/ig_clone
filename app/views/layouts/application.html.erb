@@ -9,14 +9,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-
   <body>
     <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
+    <% if logged_in? %>
     <nav class="navbar navbar-default navbar-fixed-top">
-      <% if logged_in? %>
       <div class="container-fluid">
       <div class="col-lg-2">
 
@@ -30,20 +28,11 @@
             <li><%= link_to session_path(current_user.id), method: :delete do %><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i><% end %></li>
           </ul>
         </div>
-        <% else %>
         <div class="col-lg-9">
-
         </div>
-        <div class="col-lg-2">
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Log In", new_session_path %></li>
-            <li><%= link_to "Sign up", new_user_path %></li>
-          </ul>
-        </div>
-        <% end %>
       </div>
     </nav>
-
+    <% end %>
     <div class="container" style="margin-top:100px margin-bottom:200px">
       <%= yield %>
     </div>

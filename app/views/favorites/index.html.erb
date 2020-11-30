@@ -12,22 +12,23 @@
           </header>
         </div>
       </section>
+      <% if @favorites.present? %>
       <% @favorites.each do |fav| %>
       <section id="feed">
         <div class="photo">
           <header class="photo__header">
-          <%= image_tag fav.feed.user.photo.url, class: "photo__avatar" %>
+          <%= image_tag fav.user.photo.url, class: "photo__avatar" %>
             <div class="photo__user-info">
-              <span class="photo__author"><%= fav.feed.user.name%></span>
+              <span class="photo__author"><%= fav.user.name%></span>
               <span class="photo__location">Location</span>
             </div>
           </header>
-          <%= image_tag fav.feed.image.url,class: "image-post"%>
+          <%= image_tag fav.image.url,class: "image-post"%>
           <div class="photo__info">
-            <span><%= fav.feed.post %></span>
+            <span><%= fav.post %></span>
             <br>
             <span class="photo__likes">liked by <b>Rando </b> and <b>45 others</b></span>
-            <span class="photo__time-ago"><%= fav.feed.created_at.strftime('%Y/%-m/%-d %-H:%-M') %></span>
+            <span class="photo__time-ago"><%= fav.created_at.strftime('%Y/%-m/%-d %-H:%-M') %></span>
             <div class="photo__add-comment-container">
               <textarea name="comment" placeholder="Add a comment..."></textarea>
               <a href="#">Post</a>
@@ -35,6 +36,7 @@
           </div>
         </div>
       </section>
+      <% end %>
       <% end %>
      </div>
      <div class="col-lg-2">
