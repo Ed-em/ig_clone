@@ -9,13 +9,13 @@
     <div class="side right">
       <div class="photo">
         <header class="photo__header">
-          <%= image_tag current_user.photo.url, class: "photo__avatar" %>
+          <%= image_tag @feed.user.photo.url, class: "photo__avatar" %>
           <div class="photo__user-info">
             <span class="photo__author"><%= @feed.user.name%></span>
           </div>
         </header>
         <header class="photo__header">
-          <%= link_to user_path(current_user.id) do %><%= image_tag current_user.photo.url, class: "photo__avatar" %><% end %>
+          <%= image_tag @feed.user.photo.url, class: "photo__avatar" %>
           <div class="photo__user-info">
             <strong class=""><%= @feed.user.name%></strong> <span><%= @feed.post %></span>
           </div>
