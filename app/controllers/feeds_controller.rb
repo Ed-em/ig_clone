@@ -1,5 +1,8 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
+  before_action :authenticate_user
+  before_action :logged_in?
 
   def index
     @feeds = Feed.all
@@ -18,6 +21,11 @@ class FeedsController < ApplicationController
   end
 
   def edit
+    if current_user.id != @feed.user_id
+    flash[:notice] = "Not Allowed!"
+    redirect_to feeds_path(session[:feed_user])
+    return
+  end
   end
 
   def create
